@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var exampleSocket = new WebSocket("ws://localhost:8080/ws");
+    exampleSocket.onopen = function (event) {
+        exampleSocket.send("[{\"dave\":\"slag\"}]");
+
+    };
+
+    exampleSocket.onmessage = function (event) {
+        console.log(event.data);
+        var div = document.getElementById('log');
+
+        div.innerHTML = div.innerHTML + JSON.stringify(event.data) + "<br />";
+    };
+</script>
+<div id="log">
+    Log<br />
+</div>
+</body>
+</html>
