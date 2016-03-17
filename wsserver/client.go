@@ -64,7 +64,6 @@ func (c *WSClient) AwaitDeath() {
 		//process any messages to send to the client
 		case msg := <-c.InputChan:
 		//send this down the pipe to the client
-			log.Printf("sending %v to client down WS", msg)
 			err := websocket.JSON.Send(c.ws, msg)
 			if(err != nil) {
 				log.Printf("Error sending update: %v", err)
