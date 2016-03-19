@@ -59,7 +59,7 @@ func (c *WSClient) AwaitDeath() {
 			c.dead = true
 			close(c.InputChan)
 			close(c.OutputChan)
-			close(doneCh)
+			close(c.doneCh)
 			return
 
 		//process any messages to send to the client
