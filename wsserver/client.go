@@ -57,7 +57,6 @@ func (c *WSClient) AwaitDeath() {
 		case <-c.doneCh:
 			log.Printf("Exiting client %d, bailing", c.id)
 			c.dead = true
-			close(c.InputChan)
 			close(c.OutputChan)
 			close(c.doneCh)
 			return
